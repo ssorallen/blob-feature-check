@@ -11,4 +11,7 @@ img.onload = function() {
 img.onerror = function() {
   featureDiv.className += " feature-unsupported";
 };
-img.src = URL.createObjectURL(svg);
+
+// Safari 6 uses "webkitURL".
+var url = window.webkitURL || window.URL;
+img.src = url.createObjectURL(svg);
